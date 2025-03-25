@@ -1,0 +1,53 @@
+type PickupPoint {
+  id: String!
+  name: String!
+  description: String
+  instructions: String
+  formatted_address: String
+  address: Endereco!
+  isActive: Boolean
+  distance: Float
+  seller: String
+  _sort: [Float]
+  businessHours: [HorarioDeFuncionamento!]!
+  tagsLabel: [String]
+  pickupHolidays: [String]
+  isThirdPartyPickup: Boolean
+  accountOwnerName: String
+  accountOwnerId: String
+  parentAccountName: String
+  originalId: String
+}
+
+type Endereco {
+  postalCode: String
+  country: Pais
+  city: String
+  state: String
+  neighborhood: String
+  street: String
+  number: String
+  complement: String
+  reference: String
+  location: Localizacao!
+}
+
+type Pais {
+  acronym: String
+  name: String
+}
+
+type Localizacao {
+  latitude: Float!
+  longitude: Float!
+}
+
+type HorarioDeFuncionamento {
+  dayOfWeek: Int!
+  openingTime: String!
+  closingTime: String!
+}
+
+type Query {
+  getPickupPoint: [PickupPoint!]
+}

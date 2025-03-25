@@ -5,10 +5,13 @@
 
 @layer theme {
   .theme {
+    @import "@faststore/ui/src/components/atoms/Loader/styles.scss";
+
     // --------------------------------------------------------
     // Colors (Branding Core)
     // --------------------------------------------------------
     --fs-color-main-0: #f1f2f3;
+
     // --------------------------------------------------------
     // Typography (Branding Core)
     // --------------------------------------------------------
@@ -20,6 +23,8 @@
     // --------------------------------------------------------
     // Grid & Layout (UI Essentials)
     // --------------------------------------------------------
+    --fs-grid-breakpoint-notebook: 1440px;
+    --fs-grid-breakpoint-desktop: 1440px;
 
     // --------------------------------------------------------
     // Interactive Controls (UI Essentials)
@@ -33,5 +38,81 @@
     // FS UI Components
     // --------------------------------------------------------
     // Add here the customizations for FastStore UI components.
+    [data-fs-navbar] {
+      --fs-logo-width: 8rem;
+
+      @include media(">=tablet") {
+        --fs-logo-width: 15rem;
+      }
+    }
+
+    [data-fs-hero] {
+      max-width: var(--fs-grid-max-width);
+      margin: 0 auto;
+    }
+
+    [data-fs-carousel],
+    [data-fs-carousel-controls] {
+      width: 100%;
+    }
+
+    [data-fs-carousel-control] {
+      position: absolute;
+      bottom: 50%;
+
+      &[data-fs-carousel-control="left"] {
+        left: 1rem;
+      }
+
+      &[data-fs-carousel-control="right"] {
+        right: 1rem;
+      }
+    }
+
+    [data-fs-product-card] {
+      display: flex;
+      justify-content: space-between;
+
+      [data-fs-buy-button] {
+        min-width: 100%;
+        white-space: normal;
+
+        [data-fs-icon] {
+          color: var(--fs-button-primary-text-color);
+        }
+      }
+    }
+
+    [data-fs-product-price] {
+      @media (max-width: 420px) {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      [data-fs-price-variant="listing"] {
+        margin-right: 0.25rem;
+      }
+    }
+
+    .section-alert {
+      [data-fs-alert] {
+        [data-fs-alert-content] {
+          width: 100%;
+          text-align: center;
+        }
+
+        [data-fs-icon] {
+          overflow: inherit;
+        }
+      }
+    }
+
+    .section-incentives {
+      margin-bottom: 0;
+    }
+
+    [data-fs-sku-selector-list] {
+      flex-direction: row-reverse;
+    }
   }
 }

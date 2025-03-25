@@ -15,6 +15,7 @@
     "jsx": "preserve",
     "incremental": true
   },
+  "files": ["node_modules/@faststore/core/@generated/graphql.ts"],
   "include": ["*.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "public", ".faststore"]
 }

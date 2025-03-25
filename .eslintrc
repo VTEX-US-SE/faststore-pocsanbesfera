@@ -1,0 +1,6 @@
+{
+  "extends": "@faststore/eslint-config",
+  "rules": {
+    "turbo/no-undeclared-env-vars": "off"
+  }
+}

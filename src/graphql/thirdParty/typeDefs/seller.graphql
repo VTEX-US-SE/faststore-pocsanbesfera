@@ -1,0 +1,10 @@
+type Seller {
+  id: String!
+  name: String!
+  logo: String
+  description: String
+}
+
+type Query {
+  getSeller(id: String!): Seller
+}

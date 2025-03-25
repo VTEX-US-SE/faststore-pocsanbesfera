@@ -1,0 +1,314 @@
+[
+  {
+    "name": "CategoryCards",
+    "schema": {
+      "title": "Category Cards",
+      "description": "Flex layout cards with image and text of categories",
+      "type": "object",
+      "required": ["title"],
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "images": {
+          "title": "Cards",
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "items": {
+            "title": "Card",
+            "type": "object",
+            "required": [
+              "imageTitle",
+              "imageAlt",
+              "link",
+              "imageSrcDesktop",
+              "imageSrcMobile"
+            ],
+            "properties": {
+              "imageTitle": {
+                "type": "string",
+                "title": "Image Title"
+              },
+              "imageAlt": {
+                "type": "string",
+                "title": "Image Alt"
+              },
+              "link": {
+                "type": "string",
+                "title": "Link"
+              },
+              "imageSrcDesktop": {
+                "type": "string",
+                "title": "Desktop Image",
+                "widget": {
+                  "ui:widget": "media-gallery"
+                }
+              },
+              "imageSrcMobile": {
+                "type": "string",
+                "title": "Mobile Image",
+                "widget": {
+                  "ui:widget": "media-gallery"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "Carousel",
+    "requiredScopes": [],
+    "schema": {
+      "title": "Region Banners",
+      "description": "Set of banners with region option displayed in a carousel",
+      "type": "object",
+      "properties": {
+        "images": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "items": {
+            "title": "Card",
+            "type": "object",
+            "required": [
+              "imageAlt",
+              "imageSrcDesktop",
+              "imageSrcMobile",
+              "link"
+            ],
+            "properties": {
+              "imageAlt": {
+                "type": "string",
+                "title": "Image Alt"
+              },
+              "link": {
+                "type": "string",
+                "title": "Link"
+              },
+              "franchise": {
+                "type": "string",
+                "title": "Franchise"
+              },
+              "imageSrcDesktop": {
+                "type": "string",
+                "title": "Desktop Image",
+                "widget": {
+                  "ui:widget": "media-gallery"
+                }
+              },
+              "imageSrcMobile": {
+                "type": "string",
+                "title": "Mobile Image",
+                "widget": {
+                  "ui:widget": "media-gallery"
+                }
+              }
+            }
+          }
+        },
+        "fullImage": {
+          "type": "boolean",
+          "title": "Full Image"
+        }
+      }
+    }
+  },
+  {
+    "name": "SellerBuyBox",
+    "schema": {
+      "title": "Seller Buy Box",
+      "description": "Displays the seller buy box at PDP, where customers can choose a seller to buy from",
+      "type": "object"
+    }
+  },
+  {
+    "name": "SellerInfo",
+    "schema": {
+      "title": "Seller Info",
+      "description": "Displays the current seller at PDP",
+      "type": "object"
+    }
+  },
+  {
+    "name": "PickupPoints",
+    "schema": {
+      "title": "PickupPoints Info",
+      "description": "PickupPoints Info",
+      "type": "object",
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "apikey": {
+          "title": "Google Maps API Key",
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "CustomProductTiles",
+    "requiredScopes": [],
+    "schema": {
+      "title": "Custom Product Tiles",
+      "description": "Add custom highlights to your store",
+      "type": "object",
+      "required": ["title", "first", "after", "sort"],
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "first": {
+          "title": "First",
+          "type": "integer",
+          "default": 3,
+          "description": "Number of items to display"
+        },
+        "after": {
+          "title": "After",
+          "type": "integer",
+          "default": "0",
+          "description": "Initial pagination item"
+        },
+        "sort": {
+          "title": "Sort",
+          "description": "Items order",
+          "default": "score_desc",
+          "enum": [
+            "discount_desc",
+            "name_asc",
+            "name_desc",
+            "orders_desc",
+            "price_asc",
+            "price_desc",
+            "release_desc",
+            "score_desc"
+          ],
+          "enumNames": [
+            "Discount: higher to lower",
+            "Name: Z-A",
+            "Name: A-Z",
+            "Orders: higher to lower",
+            "Price: lower to higher",
+            "Price: higher to lower",
+            "Release date: newer to older",
+            "Relevance: higher to lower"
+          ]
+        },
+        "term": {
+          "title": "Search term",
+          "type": "string"
+        },
+        "selectedFacets": {
+          "title": "Facets",
+          "type": "array",
+          "items": {
+            "title": "Facet",
+            "type": "object",
+            "required": ["key", "value"],
+            "properties": {
+              "key": {
+                "title": "Key",
+                "description": "Tip: For collections, use: productClusterIds",
+                "type": "string",
+                "default": "productClusterIds"
+              },
+              "value": {
+                "title": "Value",
+                "description": "Tip: For collection 140, use: 140",
+                "type": "string",
+                "default": "140"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "CustomProductGallery",
+    "requiredScopes": [],
+    "schema": {
+      "title": "Custom Product Gallery",
+      "description": "Add a custom product gallery to your store",
+      "type": "object",
+      "required": ["title", "first", "after", "sort"],
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "first": {
+          "title": "First",
+          "type": "integer",
+          "default": 3,
+          "description": "Number of items to display"
+        },
+        "after": {
+          "title": "After",
+          "type": "integer",
+          "default": "0",
+          "description": "Initial pagination item"
+        },
+        "sort": {
+          "title": "Sort",
+          "description": "Items order",
+          "default": "score_desc",
+          "enum": [
+            "discount_desc",
+            "name_asc",
+            "name_desc",
+            "orders_desc",
+            "price_asc",
+            "price_desc",
+            "release_desc",
+            "score_desc"
+          ],
+          "enumNames": [
+            "Discount: higher to lower",
+            "Name: Z-A",
+            "Name: A-Z",
+            "Orders: higher to lower",
+            "Price: lower to higher",
+            "Price: higher to lower",
+            "Release date: newer to older",
+            "Relevance: higher to lower"
+          ]
+        },
+        "term": {
+          "title": "Search term",
+          "type": "string"
+        },
+        "selectedFacets": {
+          "title": "Facets",
+          "type": "array",
+          "items": {
+            "title": "Facet",
+            "type": "object",
+            "required": ["key", "value"],
+            "properties": {
+              "key": {
+                "title": "Key",
+                "description": "Tip: For collections, use: productClusterIds",
+                "type": "string",
+                "default": "productClusterIds"
+              },
+              "value": {
+                "title": "Value",
+                "description": "Tip: For collection 140, use: 140",
+                "type": "string",
+                "default": "140"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+]

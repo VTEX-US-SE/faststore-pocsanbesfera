@@ -1,0 +1,38 @@
+.sellerBuyBox {
+  .title {
+    font-size: var(--fs-text-size-3);
+  }
+
+  .content {
+    .seller {
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+
+      [data-fs-button] {
+        width: 100%;
+
+        [data-fs-product-price] {
+          margin-top: 0.5rem;
+        }
+
+        [data-fs-price-variant="spot"] {
+          font-size: var(--fs-text-size-3);
+        }
+
+        &:hover,
+        &:focus,
+        &:active,
+        &.focus-visible {
+          [data-fs-price-variant="listing"] {
+            --fs-price-listing-color: var(--fs-color-neutral-4);
+          }
+
+          [data-fs-price-variant="spot"] {
+            --fs-price-spot-color: var(--fs-color-focus-ring);
+          }
+        }
+      }
+    }
+  }
+}
