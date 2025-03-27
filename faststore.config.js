@@ -47,10 +47,10 @@ module.exports = {
 
   // Production URLs
   storeUrl: 'https://pocsanbesfera.vtex.app',
-  secureSubdomain: 'https://secure.vtexfaststore.com/',
-  checkoutUrl: 'https://secure.vtexfaststore.com/checkout',
-  loginUrl: 'https://secure.vtexfaststore.com/api/io/login',
-  accountUrl: 'https://secure.vtexfaststore.com/api/io/account',
+  secureSubdomain: 'https://pocsanbesfera.myvtex.com/',
+  checkoutUrl: 'https://pocsanbesfera.myvtex.com/checkout',
+  loginUrl: 'https://pocsanbesfera.myvtex.com/api/io/login',
+  accountUrl: 'https://pocsanbesfera.myvtex.com/api/io/account',
 
   previewRedirects: {
     home: '/',
