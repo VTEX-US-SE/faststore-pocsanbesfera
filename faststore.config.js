@@ -49,8 +49,8 @@ module.exports = {
   storeUrl: 'https://pocsanbesfera.vtex.app',
   secureSubdomain: 'https://pocsanbesfera.myvtex.com/',
   checkoutUrl: 'https://pocsanbesfera.myvtex.com/checkout',
-  loginUrl: 'https://pocsanbesfera.myvtex.com/api/io/login',
-  accountUrl: 'https://pocsanbesfera.myvtex.com/api/io/account',
+  loginUrl: 'https://pocsanbesfera.myvtex.com/login',
+  accountUrl: 'https://pocsanbesfera.myvtex.com/account',
 
   previewRedirects: {
     home: '/',
