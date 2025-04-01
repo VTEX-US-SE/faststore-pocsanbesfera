@@ -1,0 +1,8 @@
+type Query {
+  getCookieByDocument(dId: String!): CookieData
+}
+
+type CookieData {
+  token: String
+  hash: String
+}

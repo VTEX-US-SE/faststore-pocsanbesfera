@@ -56,3 +56,11 @@ export const getPickupPointQuery = gql(`
     }
   }
 `)
+
+export const getCookieByDocumentQuery = gql(`
+  query getCookieByDocument($dId: String!) {
+    getCookieByDocument(dId: $dId) {
+      token
+    }
+  }
+`)

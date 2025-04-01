@@ -1,6 +1,7 @@
 import { SectionOverride } from '@faststore/core'
 import { Navbar } from '@faststore/ui'
 import { useEffect } from 'react'
+import CheckAndUpdateCookie from '../LoginCookie/LoginCookie'
 
 const SECTION = 'Navbar' as const
 
@@ -21,7 +22,12 @@ const override: SectionOverride = {
             ?.setAttribute('placeholder', 'Pesquise por produtos ou marcas')
         }, [])
 
-        return <Navbar {...props} />
+        return (
+          <>
+            <Navbar {...props} />
+            <CheckAndUpdateCookie />
+          </>
+        )
       },
     },
   },
