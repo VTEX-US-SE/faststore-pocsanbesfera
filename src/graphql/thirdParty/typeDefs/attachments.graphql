@@ -1,0 +1,19 @@
+type Query {
+  getOrderForm(orderformId: String!): OrderFormData
+}
+
+type OrderFormData {
+  orderFormId: String
+}
+
+type Mutation {
+  addToCartWithPoints(params: AddToCartProps!): OrderFormData
+}
+
+input AddToCartProps {
+  orderformId: String!
+  productId: String!
+  sellerId: String!
+  quantity: String!
+  attachment: String!
+}

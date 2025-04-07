@@ -64,3 +64,19 @@ export const getCookieByDocumentQuery = gql(`
     }
   }
 `)
+
+export const getOrderForm = gql(`
+  query getOrderForm($orderformId: String!) {
+    getOrderForm(orderformId: $orderformId) {
+      orderFormId
+    }
+  }
+`)
+
+export const addToCartWithPoints = gql(`
+  mutation addToCartWithPoints($params: AddToCartProps!) {
+    addToCartWithPoints(params: $params) {
+      orderFormId
+    }
+  }
+`)
