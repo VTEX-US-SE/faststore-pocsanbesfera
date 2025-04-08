@@ -2,8 +2,8 @@ import { Carousel } from '@faststore/ui'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useCallback } from 'react'
-import Section from '../common/Section'
-import styles from './categoryCards.module.scss'
+import Section from './common/Section'
+import styles from './CategoryCards/categoryCards.module.scss'
 
 export interface CategoryCardsProps {
   title: string
@@ -16,13 +16,13 @@ export interface CategoryCardsProps {
   }>
 }
 
-export default function CategoryCards(props: CategoryCardsProps) {
+export default function CustomCategoryCard(props: CategoryCardsProps) {
   const renderCarousel = useCallback(
     (type: 'mobile' | 'desktop') => (
       <Carousel
         controls="complete"
-        itemsPerPage={type === 'mobile' ? 3 : 8}
-        className="c-category__card-top"
+        itemsPerPage={type === 'mobile' ? 4 : 8}
+        className="c-carousel__experiencias"
       >
         {props.images?.map((image, index) => {
           return (
@@ -30,7 +30,7 @@ export default function CategoryCards(props: CategoryCardsProps) {
               key={index}
               href={image.link}
               rel="noopener noreferrer"
-              className={styles.card}
+              className="c-carousel__image-item"
             >
               <Image
                 src={
@@ -39,8 +39,9 @@ export default function CategoryCards(props: CategoryCardsProps) {
                     : image.imageSrcDesktop
                 }
                 alt={image.imageAlt}
-                width={129}
-                height={150}
+                width={265}
+                height={306}
+                className="c-carousel__image-img"
               />
               <span>{image.imageTitle}</span>
             </Link>
@@ -56,7 +57,7 @@ export default function CategoryCards(props: CategoryCardsProps) {
   }
 
   return (
-    <Section className={styles.categoryCards}>
+    <Section className={`carousel_title ${styles.categoryCards}`}>
       <div data-fs-content>
         <h2 className={`text__title-section ${styles.title}`}>{props.title}</h2>
         <div className="display-mobile">{renderCarousel('mobile')}</div>

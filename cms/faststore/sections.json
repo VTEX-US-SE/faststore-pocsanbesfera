@@ -310,5 +310,104 @@
         }
       }
     }
+  },
+  {
+    "name": "CustomCategoryCard",
+    "schema": {
+      "title": "Custom Category Card",
+      "description": "Flex layout cards with image and text of categories",
+      "type": "object",
+      "required": ["title"],
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "images": {
+          "title": "Cards",
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 6,
+          "items": {
+            "title": "Card",
+            "type": "object",
+            "required": [
+              "imageTitle",
+              "imageAlt",
+              "link",
+              "imageSrcDesktop",
+              "imageSrcMobile"
+            ],
+            "properties": {
+              "imageTitle": {
+                "type": "string",
+                "title": "Image Title"
+              },
+              "imageAlt": {
+                "type": "string",
+                "title": "Image Alt"
+              },
+              "link": {
+                "type": "string",
+                "title": "Link"
+              },
+              "imageSrcDesktop": {
+                "type": "string",
+                "title": "Desktop Image",
+                "widget": {
+                  "ui:widget": "media-gallery"
+                }
+              },
+              "imageSrcMobile": {
+                "type": "string",
+                "title": "Mobile Image",
+                "widget": {
+                  "ui:widget": "media-gallery"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "PointsCards",
+    "schema": {
+      "title": "Points Card",
+      "description": "Flex layout cards with image and text of categories",
+      "type": "object",
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "items": {
+          "title": "Points Card",
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 6,
+          "items": {
+            "title": "Card",
+            "type": "object",
+            "required": ["title", "subtitle", "text"],
+            "properties": {
+              "title": {
+                "type": "string",
+                "title": "card title"
+              },
+              "subtitle": {
+                "type": "string",
+                "title": "card sub title"
+              },
+              "text": {
+                "type": "string",
+                "title": "card text"
+              }
+            }
+          }
+        }
+      }
+    }
   }
 ]
