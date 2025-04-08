@@ -47,7 +47,6 @@ export function useCartWithPoints({ orderformId }: UseCartWithPointsProps) {
   })
 
   useEffect(() => {
-    console.log('addToCartDataResponse =>', addToCartDataResponse)
     if (
       addToCartDataResponse &&
       addToCartDataResponse?.addToCartWithPoints?.orderFormId &&

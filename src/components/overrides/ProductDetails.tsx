@@ -1,4 +1,4 @@
-import { SectionOverride } from '@faststore/core'
+import { SectionOverride, usePDP } from '@faststore/core'
 import {
   ProductPrice,
   ProductTitle,
@@ -35,6 +35,9 @@ const override: SectionOverride = {
     BuyButton: {
       Component: (props: any) => {
         const { read, set } = useCart
+        const { data: dataProduct } = usePDP()
+        const { cpp } = dataProduct.product
+        console.log('cpp', cpp)
         const cartInfo = read()
         const { addToCartWithPoints } = useCartWithPoints({
           orderformId: cartInfo.id,
