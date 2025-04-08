@@ -4,7 +4,7 @@ import { default as SellerResolver } from './seller'
 import { default as AttachmentsResolver } from './attachments'
 import { default as OrderFormResolver } from './orderFormResolver'
 
-const resolvers = [
+const resolvers: any = [
   { ...SellerResolver },
   { ...PickupPointResolver },
   { ...cookieResolver },
