@@ -80,3 +80,11 @@ export const addToCartWithPoints = gql(`
     }
   }
 `)
+
+export const getOrderFormId = gql(`
+  query getOrderFormId {
+    getOrderFormId {
+      orderFormId
+    }
+  }
+`)

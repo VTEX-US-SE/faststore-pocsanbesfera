@@ -47,10 +47,11 @@ export function useCartWithPoints({ orderformId }: UseCartWithPointsProps) {
   })
 
   useEffect(() => {
-    if (loadingAddToCart) {
-    } else if (
+    console.log('addToCartDataResponse =>', addToCartDataResponse)
+    if (
       addToCartDataResponse &&
-      addToCartDataResponse?.addToCartWithPoints?.orderFormId
+      addToCartDataResponse?.addToCartWithPoints?.orderFormId &&
+      !loadingAddToCart
     ) {
       const newCart = read()
       set(newCart)

@@ -8,11 +8,10 @@ import {
 import SellerBuyBox from '../SellerBuyBox'
 import SellerInfo from '../SellerInfo'
 import { usePriceFormatter } from '../common/custom-hooks'
-import {
-  cartStore_unstable as useCart,
-  useCartToggleButton_unstable as useCartToggleButton,
-} from '@faststore/core/experimental'
+import { cartStore_unstable as useCart } from '@faststore/core/experimental'
 import { useCartWithPoints } from '../common/custom-hooks/useCartWithPoints'
+import { useGetOrderFormId } from '../common/custom-hooks/useOrderForm'
+import { useEffect, useState } from 'react'
 
 const SECTION = 'ProductDetails' as const
 
@@ -40,16 +39,31 @@ const override: SectionOverride = {
         const { addToCartWithPoints } = useCartWithPoints({
           orderformId: cartInfo.id,
         })
-        if (!cartInfo.id) {
-          set({
-            ...cartInfo,
-            id: '2438e1502ef343b3a5c37f2430645391',
-          })
-        }
+        const [buyButtonEnable, setBuyButtonEnable] = useState(
+          !!cartInfo.id && cartInfo.id !== ''
+        )
+        const { data } = useGetOrderFormId()
+        useEffect(() => {
+          if (
+            !cartInfo.id &&
+            data?.getOrderFormId?.orderFormId &&
+            !buyButtonEnable
+          ) {
+            const newOrderFormId = data?.getOrderFormId?.orderFormId
+            set({
+              ...cartInfo,
+              id: newOrderFormId,
+            })
+            setBuyButtonEnable(true)
+          } else if (cartInfo.id && !buyButtonEnable) {
+            setBuyButtonEnable(true)
+          }
+        }, [data])
 
         return (
           <BuyButton
             {...props}
+            loading={props.loading || !buyButtonEnable}
             onClick={async (e) => {
               e.preventDefault()
               await addToCartWithPoints({
