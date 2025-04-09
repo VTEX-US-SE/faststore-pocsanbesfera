@@ -37,7 +37,6 @@ const override: SectionOverride = {
         const { read, set } = useCart
         const { data: dataProduct } = usePDP()
         const { cpp } = dataProduct.product
-        console.log('cpp', cpp)
         const cartInfo = read()
         const { addToCartWithPoints } = useCartWithPoints({
           orderformId: cartInfo.id,
@@ -75,7 +74,7 @@ const override: SectionOverride = {
                   productId: props['data-sku'],
                   sellerId: props['data-seller'],
                   quantity: '1',
-                  attachment: '60',
+                  attachment: `60|${cpp}`,
                 },
               })
             }}
