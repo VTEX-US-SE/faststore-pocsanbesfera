@@ -16,7 +16,6 @@ export const fragment = gql(`
         edges {
           node {
             cpp
-            redirectUrl
           }
         }
       }

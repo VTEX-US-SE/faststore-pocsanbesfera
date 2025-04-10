@@ -409,14 +409,5 @@
         }
       }
     }
-  },
-  {
-    "name": "CustomProductPoints",
-    "schema": {
-      "title": "CustomProductPoints",
-      "description": "Add PDP join points to your store",
-      "type": "object",
-      "properties": {}
-    }
   }
 ]

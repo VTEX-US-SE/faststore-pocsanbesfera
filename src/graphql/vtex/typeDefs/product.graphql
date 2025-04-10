@@ -1,4 +1,3 @@
 extend type StoreProduct {
     cpp: String!
-    redirectUrl: String!
 }

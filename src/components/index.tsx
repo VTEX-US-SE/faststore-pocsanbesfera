@@ -7,7 +7,6 @@ import SellerBuyBox from './SellerBuyBox'
 import SellerInfo from './SellerInfo'
 import CustomCategoryCard from './CustomCategoryCard'
 import PointsCards from './PointsCards'
-import CustomProductPoints from './CustomProductPoints/CustomProductPoints'
 
 const customSections = {
   CategoryCards,
@@ -19,7 +18,6 @@ const customSections = {
   PickupPoints,
   CustomCategoryCard,
   PointsCards,
-  CustomProductPoints,
 }
 
 export default customSections

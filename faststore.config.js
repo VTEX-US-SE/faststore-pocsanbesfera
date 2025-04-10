@@ -56,7 +56,7 @@ module.exports = {
     home: '/',
     plp: '/eletronicos',
     search: '/s?q=Samsung',
-    pdp: '/fastshop-104/p',
+    pdp: '/tablet-samsung-tab-s7-256gb-8gb-ram-tela-de-11-camera-traseira-13-0mp-5-0mp-ultra-wide-camera-frontal-de-8mp-4g-e-android-10-0-grafite-55011384/p',
   },
 
   // Lighthouse CI
@@ -64,7 +64,7 @@ module.exports = {
     server: process.env.BASE_SITE_URL || 'http://localhost:3000',
     pages: {
       home: '/',
-      pdp: '/cea-108/p',
+      pdp: '/tablet-samsung-tab-s7-256gb-8gb-ram-tela-de-11-camera-traseira-13-0mp-5-0mp-ultra-wide-camera-frontal-de-8mp-4g-e-android-10-0-grafite-55011384/p',
       collection: '/eletronicos',
     },
   },
@@ -73,7 +73,7 @@ module.exports = {
   cypress: {
     pages: {
       home: '/',
-      pdp: '/cea-108/p',
+      pdp: '/tablet-samsung-tab-s7-256gb-8gb-ram-tela-de-11-camera-traseira-13-0mp-5-0mp-ultra-wide-camera-frontal-de-8mp-4g-e-android-10-0-grafite-55011384/p',
       collection: '/eletronicos',
       collection_filtered:
         '/eletronicos?category-1=eletronicos&operator=and&brand=Samsung',
