@@ -16,7 +16,7 @@ import {
 import { ImageProps } from 'next/image'
 import NextLink from 'next/link'
 import { memo, useMemo } from 'react'
-import { usePriceFormatter } from './custom-hooks'
+import { usePointsFormatter } from './custom-hooks/usePointsFormatter'
 
 type Variant = 'wide' | 'default'
 
@@ -90,7 +90,7 @@ function CustomProductCard({
 
   const { onClick: toggleCart } = useCartToggleButton()
   const { addItem } = useCart
-  const priceFormatter = usePriceFormatter()
+  const pointsFormatter = usePointsFormatter()
 
   const outOfStock = useMemo(
     () => availability !== 'https://schema.org/InStock',
@@ -120,9 +120,11 @@ function CustomProductCard({
       <UIProductCardContent
         title={name}
         price={{
-          value: spotPrice,
-          listPrice: listPrice,
-          formatter: priceFormatter,
+          //@ts-ignore
+          value: spotPrice * Number(product.cpp),
+          //@ts-ignore
+          listPrice: listPrice * Number(product.cpp),
+          formatter: pointsFormatter,
         }}
         ratingValue={ratingValue}
         outOfStock={outOfStock}

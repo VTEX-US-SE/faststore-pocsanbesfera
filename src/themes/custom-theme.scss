@@ -135,9 +135,9 @@
 
     [data-fs-product-card] {
       display: flex;
-      justify-content: space-between;
 
-      // --fs-product-card-gap: 0;
+      // justify-content: space-between;
+      --fs-product-card-gap: 2rem;
 
       width: 250px;
       min-height: 379px;
@@ -193,6 +193,18 @@
           color: var(--fs-button-primary-text-color);
         }
       }
+    }
+
+    [data-fs-product-card-content] {
+      display: grid;
+      grid-template-rows: repeat(auto-fill, minmax(11rem, 1fr));
+      align-items: stretch;
+    }
+
+    [data-fs-product-card-heading] {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     [data-fs-product-price] {
