@@ -20,6 +20,8 @@ export default function CustomProductPoints() {
 
     if (onlyNumbers.length !== 11) {
       setError('CPF inválido')
+    } else {
+      setError('')
     }
   }
 
