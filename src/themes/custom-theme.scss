@@ -13,6 +13,9 @@
     // Colors (Branding Core)
     // --------------------------------------------------------
     --fs-color-main-0: #f1f2f3;
+    --fs-color-main-2: #cc0000;
+    --fs-color-main-3: #b30000;
+    --fs-color-main-4: #8b0000;
 
     // --------------------------------------------------------
     // Typography (Branding Core)
@@ -41,7 +44,7 @@
     // --------------------------------------------------------
     // Add here the customizations for FastStore UI components.
     [data-fs-content] {
-      width: 1200px;
+      // width: 1200px;
       margin-right: auto;
       margin-left: auto;
     }
@@ -75,7 +78,7 @@
 
     [data-fs-carousel],
     [data-fs-carousel-controls] {
-      width: 100%;
+      // width: 100%;
       opacity: 1;
     }
 
@@ -131,14 +134,20 @@
     }
 
     [data-fs-product-card] {
-      --fs-product-card-padding: 0;
+      display: flex;
+      justify-content: space-between;
 
       // --fs-product-card-gap: 0;
 
-      width: 270px;
+      width: 250px;
       min-height: 379px;
-      margin-right: 250px;
+
+      // margin-right: 250px;
       border: none;
+      border: none;
+      --fs-product-card-shadow-hover: 0 8px 32px 0 rgb(34 34 34 / 12%);
+
+      --fs-product-card-padding: 0;
 
       // box-shadow: none;
 
@@ -154,7 +163,7 @@
         [data-fs-image] {
           width: 100%;
           height: 100%;
-          object-fit: cover;
+          object-fit: contain;
           vertical-align: middle;
         }
       }
@@ -237,8 +246,12 @@
       margin-bottom: 0;
     }
 
-    [data-fs-sku-selector-list] {
-      flex-direction: row-reverse;
+    [data-fs-select] select:focus-visible {
+      --fs-color-focus-ring: #cc0000;
+
+      box-shadow:
+        0 0 0 1px #ffffff,
+        0 0 0 var(--fs-border-width-thickest) var(--fs-color-focus-ring);
     }
 
     [data-fs-navbar-header] {
@@ -275,15 +288,15 @@
 
     // Header Section
 
-    [data-fs-input] {
-      width: 100%;
-      padding: 11px 8px 15px 30px;
-      font-size: 14px;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      background: transparent;
-      border: 0;
-    }
+    // [data-fs-input] {
+    //   width: 100%;
+    //   padding: 11px 8px 15px 30px;
+    //   font-size: 14px;
+    //   text-overflow: ellipsis;
+    //   white-space: nowrap;
+    //   background: transparent;
+    //   border: 0;
+    // }
 
     [data-fs-navbar-links-list] {
       --fs-navbar-links-list-padding-left-notebook: 0;
@@ -311,8 +324,6 @@
     }
 
     [data-fs-button-icon] {
-      color: black;
-
       [data-fs-button-wrapper] {
 
         --fs-button-text-size: 12px;
@@ -360,7 +371,7 @@
     }
 
     #ultimos-produtos-visualizados {
-      --fs-carousel-item-margin-right: 250px;
+      // --fs-carousel-item-margin-right: 250px;
 
       [data-fs-carousel-bullets] {
         display: none;
@@ -368,7 +379,7 @@
     }
 
     #descontos-exclusivos {
-      --fs-carousel-item-margin-right: 250px;
+      // --fs-carousel-item-margin-right: 250px;
 
       [data-fs-carousel-bullets] {
         display: none;
