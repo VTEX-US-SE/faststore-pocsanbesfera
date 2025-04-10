@@ -20,23 +20,41 @@ const attachmentsResolver = {
     addToCartWithPoints: async (
       _: unknown,
       {
-        params: { orderformId, productId, sellerId, quantity, attachment },
+        params: {
+          orderformId,
+          productId,
+          sellerId,
+          quantity,
+          attachment,
+          isSubscription = false,
+        },
       }: AddToCartWithPointsMutationVariables
     ): Promise<AddToCartWithPointsMutation['addToCartWithPoints']> => {
+      const baseAttachments = []
+
+      if (isSubscription) {
+        baseAttachments.push({
+          name: 'vtex.subscription.clube-esfera',
+          content: {
+            'vtex.subscription.key.frequency': '1 month',
+          },
+        })
+      } else {
+        baseAttachments.push({
+          name: 'Points Conversion Information',
+          content: {
+            points: attachment,
+          },
+        })
+      }
+
       const body: AddToCartBody = {
         orderItems: [
           {
             id: productId,
             quantity: Number(quantity),
             seller: sellerId,
-            attachments: [
-              {
-                name: 'Points Conversion Information',
-                content: {
-                  points: attachment,
-                },
-              },
-            ],
+            attachments: baseAttachments,
           },
         ],
       }
@@ -84,9 +102,7 @@ type AddToCartBody = {
     seller: string
     attachments: {
       name: string
-      content: {
-        points: string
-      }
+      content: Record<string, string>
     }[]
   }[]
 }
