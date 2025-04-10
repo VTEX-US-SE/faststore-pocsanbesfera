@@ -12,6 +12,16 @@ const productResolver = {
 
       return cppValue
     },
+    redirectUrl: (root: StoreProductRoot) => {
+      const redirectValue =
+        root?.isVariantOf?.specificationGroups
+          ?.find((specificationGroup) => specificationGroup.name === 'Redirect')
+          ?.specifications?.find(
+            (specification) => specification.name === 'Redirect'
+          )?.values?.[0] || '/'
+
+      return redirectValue
+    },
   },
 }
 

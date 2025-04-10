@@ -4,6 +4,7 @@ export const searchFragment = gql(`
   fragment ServerProduct on Query {
     product(locator: $locator) {
       cpp
+      redirectUrl
     }
   }
 `)
