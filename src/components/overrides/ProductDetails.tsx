@@ -14,6 +14,7 @@ import { useGetOrderFormId } from '../common/custom-hooks/useOrderForm'
 import { useEffect, useState } from 'react'
 
 const SECTION = 'ProductDetails' as const
+const SUBSCRIPTION_SKUS = ['98']
 
 const override: SectionOverride = {
   section: SECTION,
@@ -62,21 +63,32 @@ const override: SectionOverride = {
           }
         }, [data])
 
+        const handleAddButton = async (isSubscription = false) => {
+          const pointsValue = isSubscription ? `0|${cpp}` : `60|${cpp}`
+
+          await addToCartWithPoints({
+            params: {
+              orderformId: cartInfo.id,
+              productId: props['data-sku'],
+              sellerId: props['data-seller'],
+              quantity: '1',
+              attachment: pointsValue,
+              isSubscription,
+            },
+          })
+        }
+
         return (
           <BuyButton
             {...props}
             loading={props.loading || !buyButtonEnable}
             onClick={async (e) => {
               e.preventDefault()
-              await addToCartWithPoints({
-                params: {
-                  orderformId: cartInfo.id,
-                  productId: props['data-sku'],
-                  sellerId: props['data-seller'],
-                  quantity: '1',
-                  attachment: `60|${cpp}`,
-                },
-              })
+
+              const currentSku = dataProduct?.product?.id
+              const isSubscription = SUBSCRIPTION_SKUS.includes(currentSku)
+
+              await handleAddButton(isSubscription)
             }}
           />
         )

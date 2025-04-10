@@ -15,5 +15,6 @@ input AddToCartProps {
   productId: String!
   sellerId: String!
   quantity: String!
-  attachment: String!
+  attachment: String!,
+  isSubscription: Boolean
 }
