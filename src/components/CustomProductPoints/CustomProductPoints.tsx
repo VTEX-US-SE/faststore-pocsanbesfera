@@ -18,10 +18,8 @@ export default function CustomProductPoints() {
 
     const onlyNumbers = value.replace(/\D/g, '')
 
-    if (onlyNumbers.length === 11) {
+    if (onlyNumbers.length !== 11) {
       setError('CPF inválido')
-    } else {
-      setError('')
     }
   }
 
