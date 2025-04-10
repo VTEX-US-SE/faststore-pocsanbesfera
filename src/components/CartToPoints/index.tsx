@@ -113,7 +113,7 @@ function CartToPoints() {
   useEffect(() => {
     pixelHelpers.observer({
       targetSelector: 'body',
-      mutationTargetClass: '[data-fs-cart-sidebar]',
+      mutationTargetClass: '[data-fs-cart-item]',
       callback: () => {
         const cartInfo = read()
         const itemCards = Array.from(
