@@ -911,7 +911,6 @@
 
     // Sku Selector
 
-
     [data-fs-sku-selector][data-fs-sku-selector-variant="label"] [data-fs-sku-selector-option][data-fs-sku-selector-checked="true"] > span {
       background-color: #ffe9e9;
       box-shadow: none;
@@ -931,7 +930,6 @@
     [data-fs-sku-selector] [data-fs-sku-selector-option]:hover {
       background-color: #ffe9e9;
     }
-
 
     [data-fs-sku-selector] [data-fs-sku-selector-option] {
       margin-right: 30px;
@@ -1101,4 +1099,281 @@
     font-weight: 700;
     color: #444;
   }
+}
+
+// Buy Box
+.-cardpdpvaluebox {
+  width: 360px;
+  background: #fff;
+  border: 1px solid #ededed;
+
+  .-boxheader {
+    padding: 16px 16px 18px;
+    border-bottom: 1px solid #ededed;
+
+    .-headertitle {
+      margin-bottom: 6px;
+      font-family: "Open Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 18px;
+      color: #000;
+    }
+
+    .util-flex-nospace.-discountcontainer {
+      display: flex;
+      align-items: flex-start !important;
+
+      .-containerprice {
+        .-oldprice {
+          font-family: "Open Sans", sans-serif;
+          font-size: 14px;
+          font-weight: 400;
+          color: #767676;
+          text-decoration: line-through;
+        }
+
+        .-valueboxitem.-newvalue {
+          padding-top: 7px;
+          font-family: "Open Sans", sans-serif;
+          font-size: 16px;
+          color: #000;
+        }
+      }
+    }
+  }
+
+  .-boxcontent {
+    padding: 17px 16px 25px;
+    background: #fbfbfb;
+
+    .-contenttitle {
+      margin-bottom: 6px;
+      margin-bottom: 14px;
+      font-family: "Open Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 18px;
+      color: #000;
+
+      strong {
+        font-weight: 700;
+
+        span {
+          color: #ec0000;
+        }
+      }
+
+      .-info.js-openmodal-info {
+        position: relative;
+        margin-left: 10px;
+        font-family: "Open Sans", sans-serif;
+        font-size: 11px;
+        line-height: 10px;
+        line-height: 18px;
+        color: #767676;
+        cursor: pointer;
+
+        &::after {
+          position: absolute;
+          left: 50%;
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+          content: "";
+          border: 1px solid #767676;
+          border-radius: 100%;
+          transform: translateX(-50%);
+          transform: translateX(-50%);
+        }
+      }
+    }
+
+    .util-flex-nospace.-inputbox {
+      .-valueboxitem {
+        padding-top: 7px;
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;
+        color: #000;
+
+        .-target {
+          position: relative;
+          top: -1px;
+          left: 5px;
+          padding: 2px 4px;
+          font-family: "Open Sans", sans-serif;
+          font-size: 10px;
+          color: #fff;
+          text-transform: uppercase;
+          letter-spacing: .15px;
+          background: #739e41;
+          border-radius: 2px;
+        }
+
+        span {
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+
+.util-flex-nospace {
+  display: flex;
+  align-items: flex-start;
+}
+
+.-inputbox {
+  margin-top: 6px;
+}
+
+.custom-radio:checked, .custom-radio:not(:checked) {
+  position: absolute;
+  left: 0 !important;
+  display: none;
+}
+
+.custom-radio:checked + label, .custom-radio:not(:checked) + label {
+  position: relative;
+  display: inline-block;
+  padding-top: 3px;
+  padding-left: 36px;
+  margin-bottom: 5px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  line-height: 20px;
+  color: #666;
+  cursor: pointer;
+}
+
+.custom-radio:checked + label::before {
+  border: 2px solid #c00;
+}
+
+.custom-radio:checked + label::before, .custom-radio:not(:checked) + label::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  content: "";
+  background: #fff;
+  border: 1px solid #c00;
+  border-radius: 100%;
+}
+
+.custom-radio:checked + label::after, .custom-radio:not(:checked) + label::after {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 12px;
+  height: 12px;
+  content: "";
+  background: #ec0000;
+  border-radius: 100%;
+  transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.custom-radio:checked + label::after {
+  opacity: 1;
+  transform: scale(1);
+  transform: scale(1);
+}
+
+.custom-radio:not(:checked) + label::after {
+  opacity: 0;
+  transform: scale(0);
+  transform: scale(0);
+}
+
+//************************//
+
+.text__title-mini.sellerBuyBox_title__aCJHu {
+  color: #222;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  margin: 45px 0 22px 0;
+}
+
+.sellerBuyBox_offerList__S2Ewe {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.sellerBuyBox_seller__Qn7QY {
+  border-bottom: solid 1px #f0f0f0;
+  cursor: pointer;
+  display: none;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  max-width: 360px;
+  padding-bottom: 20px;
+  width: 100%;
+
+  div {
+    flex-grow: 1;
+    .sellerBuyBox_seller__Qn7QY {
+      font-size: 20px;
+      color: #333;
+      border: none;
+    }
+    .sellerBuyBox_forPrice__IQfV7 {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      .sellerBuyBox_listPoints__LDDiM{
+        color: #999;
+        font-size: 12px;
+      }
+      .sellerBuyBox_finalPoints__r_NwB {
+        color: #222;
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;
+      }
+    }
+    div {
+      color: #999;
+      font-size: 12px;
+    }
+  }
+}
+
+.sellerBuyBox_seller__Qn7QY:nth-child(-n+3) {
+  display: flex;
+}
+
+.sellerBuyBox_seller__Qn7QY {
+  position: relative;
+}
+
+.sellerBuyBox_seller__Qn7QY input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sellerBuyBox_seller__Qn7QY label {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #c00;
+  border-radius: 100%;
+  cursor: pointer;
+  position: relative;
+  background: #fff;
+}
+
+/* Bolinha interna quando está marcado */
+.sellerBuyBox_seller__Qn7QY input[type="radio"]:checked + label::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 12px;
+  height: 12px;
+  background-color: #cc0000;
+  border-radius: 50%;
 }

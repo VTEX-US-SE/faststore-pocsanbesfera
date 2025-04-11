@@ -17,7 +17,6 @@ export interface PointsCardsProps {
 }
 
 export default function PointsCards(props: PointsCardsProps) {
-  console.log('rendering')
   const renderCarousel = useCallback(
     (type: 'mobile' | 'desktop') => (
       <Carousel

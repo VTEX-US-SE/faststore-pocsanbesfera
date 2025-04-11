@@ -47,7 +47,7 @@ const attachmentsResolver = {
         },
       })
 
-      const body: AddToCartBody = {
+      const body: any = {
         orderItems: [
           {
             id: productId,

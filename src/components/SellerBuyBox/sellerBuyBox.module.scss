@@ -4,33 +4,32 @@
   }
 
   .content {
-    .seller {
-      &:not(:last-child) {
-        margin-bottom: 1rem;
-      }
+    .offerList {
+      display: flex;
+      flex-direction: column;
+      padding: 0.25rem;
 
-      [data-fs-button] {
-        width: 100%;
+      .seller {
+        display: flex;
+        padding: 0.25rem;
 
-        [data-fs-product-price] {
-          margin-top: 0.5rem;
-        }
+        .forPrice {
+          display: flex;
+          padding: 0.25rem;
 
-        [data-fs-price-variant="spot"] {
-          font-size: var(--fs-text-size-3);
-        }
-
-        &:hover,
-        &:focus,
-        &:active,
-        &.focus-visible {
-          [data-fs-price-variant="listing"] {
-            --fs-price-listing-color: var(--fs-color-neutral-4);
+          .listPoints {
+            padding-right: 0.25rem;
+            font-weight: light;
+            text-decoration: line-through;
           }
 
-          [data-fs-price-variant="spot"] {
-            --fs-price-spot-color: var(--fs-color-focus-ring);
+          .finalPoints {
+            font-weight: bold;
           }
+        }
+
+        &:not(:last-child) {
+          margin-right: 1rem;
         }
       }
     }
