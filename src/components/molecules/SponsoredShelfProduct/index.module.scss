@@ -1,0 +1,342 @@
+@import "../../../sass/scaffold";
+
+/* stylelint-disable no-duplicate-selectors */
+.productCard {
+  width: 100%;
+  height: 100%;
+  max-height: 401px;
+  padding: 0 24px;
+  overflow: hidden;
+  border-left: 1px solid rgb(232 232 232);
+
+  a {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+    height: 100%;
+    min-height: fit-content;
+    text-decoration: none;
+  }
+
+  .spec {
+    font-family: $font-family-body;
+    color: #808080;
+  }
+
+  .productImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 160px;
+    height: auto;
+    aspect-ratio: 1;
+
+    img {
+      width: 160px;
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: contain;
+    }
+  }
+
+  .productInfoContainer {
+    .productInfo > div:has(.productPrice) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .productInfoContainer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 8px;
+    justify-content: space-between;
+
+    .productInfo {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 8px;
+      justify-content: center;
+
+      .sponsored {
+        margin-bottom: $spacing-xx-small;
+        font-size: 12px;
+        color: $grayscale-color-600;
+      }
+
+      .productName {
+        display: -webkit-box;
+        height: fit-content;
+        max-height: 54px;
+        margin: 0 0 $spacing-xx-small;
+        overflow: hidden;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 18px;
+        color: $grayscale-color-800;
+        text-overflow: ellipsis;
+        white-space: normal;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+
+      .priceAndAvailabilityContent {
+        .productUnavailable {
+          display: flex;
+          flex-direction: column;
+          align-items: end;
+          justify-content: center;
+          height: 100%;
+          min-height: auto;
+          font-family: $font-family-body;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 19px;
+          color: $grayscale-color-600;
+          text-align: left;
+          white-space: normal;
+        }
+
+        .priceContent {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 100%;
+
+          .discount {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            height: 16px;
+
+            @include desktop {
+              height: 18px;
+              margin: 0 0 $spacing-xxx-small;
+            }
+
+            .discountPrice {
+              font-size: 12px;
+              font-weight: 400;
+              color: $grayscale-color-600;
+              text-decoration: line-through;
+
+              @include desktop {
+                font-size: 14px;
+              }
+            }
+
+            .discountPercent {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: fit-content;
+              padding: 2px $spacing-xx-small;
+              font-size: 12px;
+              font-weight: 700;
+              line-height: 14px;
+              color: $color-white;
+              background-color: $success-color-500;
+              border-radius: $radius-s;
+            }
+          }
+
+          .productPrice {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 20px;
+            color: $grayscale-color-800;
+
+            @include desktop {
+              margin: 0 0 $spacing-xx-small;
+              font-size: 16px;
+              line-height: 20px;
+            }
+          }
+        }
+      }
+    }
+
+    .productSpecsDesktop {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 $spacing-xx-small;
+
+      .spec {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        height: 28px;
+        padding: 0 $spacing-xx-small;
+        font-family: $font-family-body;
+        font-size: 12px;
+        font-weight: 700;
+        background-color: $grayscale-color-100;
+        border-radius: $radius-s;
+
+        &.internacional {
+          &::before {
+            display: block;
+            width: 20px;
+            height: 20px;
+            margin-right: 4px;
+            content: "";
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.8766 2.33335C14.6207 2.33335 14.4457 2.4108 14.2946 2.56188L11.7466 5.10982C11.5543 5.30214 11.2803 5.3885 11.0124 5.3412L3.53498 4.02051L2.96787 4.60111L8.36061 6.8977C8.61533 7.00618 8.79954 7.23408 8.85221 7.50588C8.90487 7.77768 8.81911 8.05789 8.62335 8.25366L6.52746 10.3495C6.33599 10.541 6.06345 10.6275 5.79661 10.5815L3.23899 10.1405L2.88869 10.4859L5.67551 11.9853C5.81928 12.0627 5.93717 12.1806 6.01452 12.3244L7.5179 15.1185L7.87628 14.7601L7.4195 12.2303C7.37097 11.9615 7.45721 11.6861 7.65032 11.493L9.74621 9.39707C9.9417 9.20158 10.2214 9.11576 10.4929 9.16799C10.7644 9.22022 10.9923 9.40369 11.1013 9.65776L13.4107 15.0408L13.9803 14.4712L12.6587 7.00834C12.6113 6.74041 12.6976 6.46618 12.89 6.27378L15.4585 3.70529C15.6122 3.55165 15.6871 3.37887 15.6871 3.13358C15.6871 2.8883 15.6122 2.71551 15.4585 2.56188C15.3075 2.4108 15.1324 2.33335 14.8766 2.33335ZM13.1161 1.38337C13.5951 0.904306 14.2009 0.666687 14.8766 0.666687C15.5522 0.666687 16.158 0.904305 16.637 1.38337C17.1135 1.85987 17.3537 2.46106 17.3537 3.13358C17.3537 3.8061 17.1135 4.40729 16.637 4.8838L14.3756 7.14527L15.6971 14.6081C15.7446 14.8761 15.6582 15.1503 15.4658 15.3427L13.7192 17.0893C13.5237 17.2848 13.244 17.3706 12.9725 17.3183C12.7011 17.2661 12.4732 17.0826 12.3642 16.8286L10.0547 11.4456L9.13711 12.3632L9.59389 14.893C9.64242 15.1618 9.55618 15.4373 9.36307 15.6304L7.90417 17.0893C7.71787 17.2756 7.45444 17.3628 7.19377 17.3245C6.9331 17.2862 6.7059 17.1269 6.58106 16.8949L4.66541 13.3345L1.105 11.4188C0.872067 11.2935 0.712465 11.065 0.674941 10.8032C0.637416 10.5413 0.726426 10.2772 0.914784 10.0915L2.37369 8.65318C2.56502 8.46454 2.83556 8.37973 3.10034 8.42538L5.65427 8.86571L6.57234 7.94765L1.19388 5.65713C0.940755 5.54934 0.757149 5.32355 0.703224 5.05377C0.6493 4.78398 0.732008 4.50496 0.924247 4.30815L2.65027 2.54102C2.84273 2.34398 3.12012 2.25477 3.39136 2.30268L10.875 3.62446L13.1161 1.38337Z" fill="%23808080"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+        }
+      }
+    }
+  }
+
+  .productSpecsMobile {
+    position: static;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    grid-area: productSpecs;
+    gap: 2px;
+    width: 100%;
+    padding-top: 2px;
+
+    .spec {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 24px;
+      color: $grayscale-color-800;
+      background-color: $grayscale-color-100;
+
+      &:last-child {
+        border-radius: 0 0 $radius-s $radius-s;
+      }
+
+      &.internacional {
+        &::before {
+          display: block;
+          width: 20px;
+          height: 20px;
+          margin-right: 4px;
+          content: "";
+          background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.8766 2.33335C14.6207 2.33335 14.4457 2.4108 14.2946 2.56188L11.7466 5.10982C11.5543 5.30214 11.2803 5.3885 11.0124 5.3412L3.53498 4.02051L2.96787 4.60111L8.36061 6.8977C8.61533 7.00618 8.79954 7.23408 8.85221 7.50588C8.90487 7.77768 8.81911 8.05789 8.62335 8.25366L6.52746 10.3495C6.33599 10.541 6.06345 10.6275 5.79661 10.5815L3.23899 10.1405L2.88869 10.4859L5.67551 11.9853C5.81928 12.0627 5.93717 12.1806 6.01452 12.3244L7.5179 15.1185L7.87628 14.7601L7.4195 12.2303C7.37097 11.9615 7.45721 11.6861 7.65032 11.493L9.74621 9.39707C9.9417 9.20158 10.2214 9.11576 10.4929 9.16799C10.7644 9.22022 10.9923 9.40369 11.1013 9.65776L13.4107 15.0408L13.9803 14.4712L12.6587 7.00834C12.6113 6.74041 12.6976 6.46618 12.89 6.27378L15.4585 3.70529C15.6122 3.55165 15.6871 3.37887 15.6871 3.13358C15.6871 2.8883 15.6122 2.71551 15.4585 2.56188C15.3075 2.4108 15.1324 2.33335 14.8766 2.33335ZM13.1161 1.38337C13.5951 0.904306 14.2009 0.666687 14.8766 0.666687C15.5522 0.666687 16.158 0.904305 16.637 1.38337C17.1135 1.85987 17.3537 2.46106 17.3537 3.13358C17.3537 3.8061 17.1135 4.40729 16.637 4.8838L14.3756 7.14527L15.6971 14.6081C15.7446 14.8761 15.6582 15.1503 15.4658 15.3427L13.7192 17.0893C13.5237 17.2848 13.244 17.3706 12.9725 17.3183C12.7011 17.2661 12.4732 17.0826 12.3642 16.8286L10.0547 11.4456L9.13711 12.3632L9.59389 14.893C9.64242 15.1618 9.55618 15.4373 9.36307 15.6304L7.90417 17.0893C7.71787 17.2756 7.45444 17.3628 7.19377 17.3245C6.9331 17.2862 6.7059 17.1269 6.58106 16.8949L4.66541 13.3345L1.105 11.4188C0.872067 11.2935 0.712465 11.065 0.674941 10.8032C0.637416 10.5413 0.726426 10.2772 0.914784 10.0915L2.37369 8.65318C2.56502 8.46454 2.83556 8.37973 3.10034 8.42538L5.65427 8.86571L6.57234 7.94765L1.19388 5.65713C0.940755 5.54934 0.757149 5.32355 0.703224 5.05377C0.6493 4.78398 0.732008 4.50496 0.924247 4.30815L2.65027 2.54102C2.84273 2.34398 3.12012 2.25477 3.39136 2.30268L10.875 3.62446L13.1161 1.38337Z" fill="%23808080"/></svg>');
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .productCard {
+    height: fit-content;
+    max-height: none;
+
+    a {
+      height: fit-content;
+    }
+
+    .productInfoContainer {
+      .productInfo {
+        flex-direction: row;
+        gap: 24px;
+        justify-content: space-between;
+
+        &.brand {
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .descriptiveContent {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 100%;
+
+          &.brand {
+            height: fit-content;
+          }
+        }
+
+        .priceAndAvailabilityContent {
+          .productUnavailable {
+            bottom: 50%;
+            font-size: 16px;
+            line-height: 21px;
+
+            .brand {
+              font-size: 12px;
+            }
+          }
+
+          .priceContent {
+            padding-right: 16px;
+
+            .discount {
+              height: 20px;
+
+              .discountPrice {
+                font-size: 16px;
+                line-height: 20px;
+
+                .brand {
+                  font-size: 12px;
+                }
+              }
+
+              .discountPercent {
+                font-size: 14px;
+                line-height: 18px;
+
+                .brand {
+                  font-size: 10px;
+                }
+              }
+            }
+
+            .productPrice {
+              font-size: 24px;
+              line-height: 28px;
+              text-align: center;
+
+              &.brand {
+                font-size: 18px;
+                text-align: start;
+              }
+            }
+          }
+        }
+      }
+
+      .productSpecsDesktop {
+        .spec {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .badge {
+    width: 95px;
+    height: 28px;
+    margin: 0;
+    font-family: $font-family-body;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: normal;
+    word-break: break-word;
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,213 @@
+// -------------- Font Family -------------- //
+$font-primary: "Roboto Flex", sans-serif;
+$font-family-body: "Roboto", sans-serif;
+
+// -------------- Font Size Desktop-------------- //
+$font-size-h1-desktop: 32px;
+$font-size-h2-desktop: 24px;
+$font-size-h3-desktop: 20px;
+$font-size-h4-desktop: 16px;
+$font-size-h5-desktop: 14px;
+$font-size-h6-desktop: 12px;
+
+// $font-size-h1-desktop: 64px;
+// $font-size-h2-desktop: 48px;
+// $font-size-h3-desktop: 40px;
+// $font-size-h4-desktop: 32px;
+// $font-size-h5-desktop: 24px;
+// $font-size-h6-desktop: 20px;
+
+// -------------- Font Size Mobile-------------- //
+$font-size-h1-mobile: 24px;
+$font-size-h2-mobile: 20px;
+$font-size-h3-mobile: 18px;
+$font-size-h4-mobile: 16px;
+$font-size-h5-mobile: 14px;
+$font-size-h6-mobile: 12px;
+
+// $font-size-h1-mobile: 32px;
+// $font-size-h2-mobile: 28px;
+// $font-size-h3-mobile: 26px;
+// $font-size-h4-mobile: 24px;
+// $font-size-h5-mobile: 20px;
+// $font-size-h6-mobile: 18px;
+
+// -------------- Font Body -------------- //
+$sa-body-paragraph-0: 12px;
+$sa-body-paragraph-1: 14px;
+$sa-body-paragraph-2: 16px;
+
+// -------------- Font Weight-------------- //
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+// -------------- Line Height-------------- //
+$line-height-xx-small: 21px;
+$line-height-x-small: 24px;
+$line-height-small: 28px;
+$line-height-xx-medium: 30px;
+$line-height-x-medium: 32px;
+$line-height-medium: 36px;
+$line-height-xx-large: 44px;
+$line-height-x-large: 52px;
+$line-height-large: 72px;
+
+// -------------- Colors -------------- //
+
+// -- main colors -- //
+$main-color-100: #fde0e6;
+$main-color-200: #fabfcb;
+$main-color-300: #f68097;
+$main-color-400: #f14064;
+$main-color-500: #ed0030;
+$main-color-600: #d1002a;
+$main-color-700: #b20024;
+$main-color-800: #760018;
+$main-color-900: #3b000c;
+
+// -- system success palette -- //
+$success-color-100: #e0f0e0;
+$success-color-200: #bfdfbf;
+$success-color-300: #80bf80;
+$success-color-400: #40a040;
+$success-color-500: #008000;
+$success-color-600: #007100;
+$success-color-700: #007100;
+$success-color-800: #004000;
+$success-color-900: #002000;
+
+// -- system urgent palette -- //
+$urgent-color-100: #feebe6;
+$urgent-color-200: #fdd6ca;
+$urgent-color-300: #fbad95;
+$urgent-color-400: #f98460;
+$urgent-color-500: #f75b2b;
+$urgent-color-600: #d95026;
+$urgent-color-700: #b94420;
+$urgent-color-800: #7b2d15;
+$urgent-color-900: #3e170b;
+
+// -- system warning palette -- //
+$warning-color-100: #fefae2;
+$warning-color-200: #fef5c2;
+$warning-color-300: #fceb84;
+$warning-color-400: #fbe147;
+$warning-color-500: #fad70a;
+$warning-color-600: #dcbd09;
+$warning-color-700: #bba107;
+$warning-color-800: #7d6b05;
+$warning-color-900: #3e3602;
+
+// -- system info palette -- //
+$info-color-100: #e0eefb;
+$info-color-200: #bfdbf7;
+$info-color-300: #80b8f0;
+$info-color-400: #4094e8;
+$info-color-500: #0071e0;
+$info-color-600: #0063c5;
+$info-color-700: #0063c5;
+$info-color-800: #003870;
+$info-color-900: #001c38;
+
+// -- grayscale palette -- //
+$grayscale-color-100: #f1f1f1;
+$grayscale-color-200: #cccccc;
+$grayscale-color-300: #b3b3b3;
+$grayscale-color-400: #999999;
+$grayscale-color-500: #808080;
+$grayscale-color-600: #666666;
+$grayscale-color-700: #4d4d4d;
+$grayscale-color-800: #333333;
+$grayscale-color-900: #1a1a1a;
+
+// -- baseline -- //
+$color-white: #ffffff;
+$color-black: #000000;
+
+// -- ame primary palette -- //
+$ame-primary-color-100: #e3e0f0;
+$ame-primary-color-200: #c5bfe0;
+$ame-primary-color-300: #8b80c2;
+$ame-primary-color-400: #5140a3;
+$ame-primary-color-500: #170085;
+$ame-primary-color-600: #140071;
+$ame-primary-color-700: #110064;
+$ame-primary-color-800: #0b0042;
+$ame-primary-color-900: #060021;
+
+// -- ame secondary palette -- //
+$ame-primary-color-100: #fde0eb;
+$ame-primary-color-200: #fabfd5;
+$ame-primary-color-300: #f680ac;
+$ame-primary-color-400: #f14082;
+$ame-primary-color-500: #ed0059;
+$ame-primary-color-600: #d1004e;
+$ame-primary-color-700: #b20043;
+$ame-primary-color-800: #76002c;
+$ame-primary-color-900: #3b0016;
+
+// -- Oldest palette -- //
+
+// - Opacity - //
+
+$color-opacity-dark: rgb(0 0 0 / 40%);
+$color-opacity-light: rgb(255 255 255 / 60%);
+
+// -------------- Spacing -------------- //
+
+$spacing-xxx-small: 4px;
+$spacing-xx-small: 8px;
+$spacing-xy-small: 12px;
+$spacing-x-small: 16px;
+$spacing-small: 24px;
+$spacing-medium: 32px;
+$spacing-x-medium: 34px;
+$spacing-large: 40px;
+$spacing-x-large: 48px;
+$spacing-xx-large: 56px;
+$spacing-xxx-large: 64px;
+$spacing-xxxx-large: 72px;
+
+// -------------- Stroke -------------- //
+
+$size-strokes-1: 1px;
+$size-strokes-2: 2px;
+$size-strokes-3: 4px;
+
+// -------------- Corner Radius Border -------------- //
+
+$border-small: 1px;
+$border-medium: 2px;
+$radius-none: 0;
+$radius-xxs: 4px;
+$radius-xs: 8px;
+$radius-s: 16px;
+$radius-medium: 24px;
+$radius-large: 32px;
+
+// -------------- Elevation -------------- //
+$elevation-none: 0;
+$elevation-1: 0 4px 4px 0 #00000014;
+$elevation-2: 0 4px 8px -2px #00000029;
+$elevation-3: 0 4px 8px -4px #00000029;
+$elevation-4: 0 16px 32px -8px #0000003d;
+
+// -------------- IconSize -------------- //
+$icon-size-inherit: 16px;
+$icon-size-16: 16px;
+$icon-size-20: 20px;
+$icon-size-24: 24px;
+$icon-size-32: 32px;
+$icon-size-40: 40px;
+
+// -------------- Containers -------------- //
+$container-grid: 24px;
+$container-grid-mob: 16px;
+$container-margin: 0 auto;
+$container-margin-mob: 0 16px;
+$container-max-width: 1248px;
+$container-max-width-mob: 100%;
+
+// -------------- Thickness -------------- //
+$thickness-small: 1px;
+$thickness-medium: 2px;

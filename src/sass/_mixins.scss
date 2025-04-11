@@ -1,0 +1,68 @@
+@import "./variables";
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin container($type: "desktop") {
+  @if $type == "desktop" {
+    width: 100%;
+    max-width: $container-max-width;
+    padding: 0;
+    margin: auto;
+  }
+
+  @else if $type == "mobile" {
+    width: 100%;
+    max-width: $container-max-width-mob;
+    padding: $container-margin-mob;
+  }
+}
+
+@mixin font(
+  $font-size: "",
+  $line-height: "",
+  $font-weight: "",
+  $letter-spacing: 0,
+  $color: ""
+) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  color: $color;
+  letter-spacing: $letter-spacing;
+}
+
+@mixin flex($justify: "", $align: "") {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin z-index($z-index: "") {
+  position: relative;
+  z-index: $z-index;
+}
+
+@mixin button($type: "primary", $width: "", $height: "", $textColor: "") {
+  width: $width;
+  height: $height;
+  color: $textColor;
+  cursor: pointer;
+  background-color: $main-color-500;
+  border-radius: $spacing-x-small;
+
+  @if $type == "secundary" {
+    color: $textColor;
+    background-color: $color-white;
+    border: 2px solid $main-color-500;
+  }
+}

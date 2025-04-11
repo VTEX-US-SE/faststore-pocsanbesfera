@@ -8,6 +8,7 @@ import SellerInfo from './SellerInfo'
 import CustomCategoryCard from './CustomCategoryCard'
 import PointsCards from './PointsCards'
 import CustomProductPoints from './CustomProductPoints/CustomProductPoints'
+import SponsoredShelf from './organisms/SponsoredShelf'
 
 const customSections = {
   CategoryCards,
@@ -20,6 +21,7 @@ const customSections = {
   CustomCategoryCard,
   PointsCards,
   CustomProductPoints,
+  SponsoredShelf,
 }
 
 export default customSections

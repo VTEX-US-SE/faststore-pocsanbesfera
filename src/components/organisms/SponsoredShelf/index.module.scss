@@ -1,0 +1,34 @@
+@import "../../../sass/scaffold";
+
+.shelfCard {
+  @include container("mobile");
+
+  position: relative;
+  height: fit-content;
+  padding: $spacing-x-small 0;
+  margin: auto;
+  margin-bottom: $spacing-xxx-small;
+  overflow: hidden;
+  background-color: $color-white;
+  border-radius: $radius-s;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%);
+}
+
+@include desktop {
+  .shelfCard {
+    @include container("desktop");
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    max-height: 401px;
+    padding: $spacing-x-small 0;
+    margin: auto;
+    margin-bottom: $spacing-xxx-small;
+    overflow: hidden;
+    background-color: $color-white;
+    border-radius: $radius-s;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%);
+  }
+}
