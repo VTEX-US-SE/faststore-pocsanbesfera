@@ -92,6 +92,10 @@ module.exports = {
     cypressVersion: 12,
   },
 
+  contentSource: {
+    type: 'CP',
+  },
+
   vtexHeadlessCms: {
     webhookUrls: [
       'https://pocsanbesfera.myvtex.com/cms-releases/webhook-releases',
