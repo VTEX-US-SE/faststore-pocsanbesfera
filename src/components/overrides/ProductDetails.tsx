@@ -11,7 +11,7 @@ import { usePriceFormatter } from '../common/custom-hooks'
 import { cartStore_unstable as useCart } from '@faststore/core/experimental'
 import { useCartWithPoints } from '../common/custom-hooks/useCartWithPoints'
 import { useGetOrderFormId } from '../common/custom-hooks/useOrderForm'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const SECTION = 'ProductDetails' as const
 const SUBSCRIPTION_SKUS = ['98']
@@ -37,9 +37,6 @@ const override: SectionOverride = {
     },
     BuyButton: {
       Component: (props: any) => {
-        const priceDiv: any = document.querySelector(
-          'span[data-fs-price="true"]'
-        )
         const { read, set } = useCart
         const { data: dataProduct } = usePDP()
         const { cpp, offers, id } = dataProduct.product
@@ -57,6 +54,7 @@ const override: SectionOverride = {
           !!cartInfo.id && cartInfo.id !== ''
         )
         const { data } = useGetOrderFormId()
+        const priceDivRef = useRef<Element | null>(null)
 
         const listPoints = (
           Number(selectedOffer.listPrice) * Number(cpp)
@@ -65,12 +63,21 @@ const override: SectionOverride = {
           0
         )
 
-        //@ts-ignore
-        window.gambiarra = {
-          pointValue: `60|${cpp}`,
-        }
+        // Initialise gambiarra on the client only — never runs during SSR
+        useEffect(() => {
+          if (typeof window === 'undefined') return
 
-        if (id !== '98') {
+          //@ts-ignore
+          window.gambiarra = { pointValue: `60|${cpp}` }
+        }, [cpp])
+
+        // DOM manipulation + event listeners — client-only, inside useEffect with cleanup
+        useEffect(() => {
+          if (typeof window === 'undefined' || id === '98') return
+
+          const priceDiv = document.querySelector('span[data-fs-price="true"]')
+          priceDivRef.current = priceDiv
+
           priceDiv?.setHTMLUnsafe(
             divMaluca({
               ponto1: listPoints,
@@ -84,42 +91,40 @@ const override: SectionOverride = {
             })
           )
 
+          const handler100 = () => {
+            //@ts-ignore
+            window.gambiarra = { pointValue: `100|${cpp}` }
+          }
+          const handler80 = () => {
+            //@ts-ignore
+            window.gambiarra = { pointValue: `80|${cpp}` }
+          }
+          const handler70 = () => {
+            //@ts-ignore
+            window.gambiarra = { pointValue: `70|${cpp}` }
+          }
+          const handler60 = () => {
+            //@ts-ignore
+            window.gambiarra = { pointValue: `60|${cpp}` }
+          }
+
           const inputPrice100 = document.getElementById('inputPrice100')
-
-          inputPrice100?.addEventListener('change', () => {
-            //@ts-ignore
-            window.gambiarra = {
-              pointValue: `100|${cpp}`,
-            }
-          })
-
           const inputPrice80 = document.getElementById('inputPrice80')
-
-          inputPrice80?.addEventListener('change', () => {
-            //@ts-ignore
-            window.gambiarra = {
-              pointValue: `80|${cpp}`,
-            }
-          })
-
           const inputPrice70 = document.getElementById('inputPrice70')
-
-          inputPrice70?.addEventListener('change', () => {
-            //@ts-ignore
-            window.gambiarra = {
-              pointValue: `70|${cpp}`,
-            }
-          })
-
           const inputPrice60 = document.getElementById('inputPrice60')
 
-          inputPrice60?.addEventListener('change', () => {
-            //@ts-ignore
-            window.gambiarra = {
-              pointValue: `60|${cpp}`,
-            }
-          })
-        }
+          inputPrice100?.addEventListener('change', handler100)
+          inputPrice80?.addEventListener('change', handler80)
+          inputPrice70?.addEventListener('change', handler70)
+          inputPrice60?.addEventListener('change', handler60)
+
+          return () => {
+            inputPrice100?.removeEventListener('change', handler100)
+            inputPrice80?.removeEventListener('change', handler80)
+            inputPrice70?.removeEventListener('change', handler70)
+            inputPrice60?.removeEventListener('change', handler60)
+          }
+        }, [id, cpp, listPoints, finalPoints, selectedOffer])
 
         useEffect(() => {
           if (
@@ -141,8 +146,10 @@ const override: SectionOverride = {
         const handleAddButton = async (isSubscription = false) => {
           const pointsValue = isSubscription
             ? `0|${cpp}`
-            : //@ts-ignore
-              window.gambiarra.pointValue
+            : typeof window !== 'undefined'
+            ? //@ts-ignore
+              window.gambiarra?.pointValue ?? `60|${cpp}`
+            : `60|${cpp}`
 
           await addToCartWithPoints({
             params: {
@@ -171,7 +178,7 @@ const override: SectionOverride = {
               }}
             />
             <SellerBuyBox
-              priceDiv={priceDiv}
+              priceDiv={priceDivRef.current}
               setSelectedSeller={setSelectedSeller}
               selectedSeller={selectedSeller}
             />

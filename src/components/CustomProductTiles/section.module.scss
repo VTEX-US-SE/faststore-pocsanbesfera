@@ -1,3 +1,5 @@
+@use "@faststore/ui/src/styles/base/utilities" as u;
+
 @layer components {
   .section {
     @import "@faststore/ui/src/components/atoms/Badge/styles";
@@ -17,11 +19,11 @@
     [data-fs-tiles] {
       [data-fs-tile] {
         > * {
-          @include media(">=tablet") {
+          @include u.media(">=tablet") {
             grid-auto-rows: 62% auto auto;
           }
 
-          @include media(">=notebook") {
+          @include u.media(">=notebook") {
             grid-auto-rows: 70% auto 10%;
           }
         }

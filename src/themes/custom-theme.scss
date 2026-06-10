@@ -1,3 +1,5 @@
+@use "@faststore/ui/src/styles/base/utilities" as u;
+
 // ----------------------------------------------------------
 // GLOBAL TOKENS
 // Custom Theme
@@ -66,7 +68,7 @@
 
       --fs-navbar-bkg-color: #f0f0f0;
 
-      @include media(">=tablet") {
+      @include u.media(">=tablet") {
         --fs-logo-width: 15rem;
       }
     }
