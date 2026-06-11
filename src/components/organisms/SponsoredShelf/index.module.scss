@@ -1,4 +1,4 @@
-@import "../../../sass/scaffold";
+@use "../../../sass/scaffold" as *;
 
 .shelfCard {
   @include container("mobile");
