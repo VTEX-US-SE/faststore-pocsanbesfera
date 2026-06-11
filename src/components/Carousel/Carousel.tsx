@@ -1,4 +1,4 @@
-import { useSession_unstable as useSession } from '@faststore/core/experimental'
+import { useSession } from 'src/sdk/session'
 import { Carousel } from '@faststore/ui'
 import NextImage from 'next/image'
 import Link from 'next/link'
