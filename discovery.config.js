@@ -96,6 +96,10 @@ module.exports = {
     type: 'CP',
   },
 
+  localization: {
+    enabled: true,
+  },
+
   vtexHeadlessCms: {
     webhookUrls: [
       'https://pocsanbesfera.myvtex.com/cms-releases/webhook-releases',
