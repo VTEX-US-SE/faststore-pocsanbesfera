@@ -47,7 +47,7 @@ module.exports = {
 
   // Production URLs
   storeUrl: 'https://santander.b2cdemostore.com',
-  secureSubdomain: 'https://santander.b2cdemostore.com/',
+  secureSubdomain: 'https://santander.b2cdemostore.com',
   checkoutUrl: 'https://santander.b2cdemostore.com/checkout',
   loginUrl: 'https://santander.b2cdemostore.com/login',
   accountUrl: 'https://santander.b2cdemostore.com/account',
