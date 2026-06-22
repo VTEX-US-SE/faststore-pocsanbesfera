@@ -25,12 +25,12 @@ module.exports = {
   // Default session
   session: {
     currency: {
-      code: 'BRL',
-      symbol: 'R$',
+      code: 'EUR',
+      symbol: '€',
     },
-    locale: 'pt-BR',
-    channel: '{"salesChannel":1,"regionId":""}',
-    country: 'BRA',
+    locale: 'en-GB',
+    channel: '{"salesChannel":3,"regionId":""}',
+    country: 'GBR',
     deliveryMode: null,
     addressType: null,
     postalCode: null,
