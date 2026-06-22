@@ -98,6 +98,23 @@ module.exports = {
 
   localization: {
     enabled: true,
+    currencies: {
+      BRL: {
+        code: "BRL",
+        name: "Brazilian Real",
+        symbol: "R$",
+      },
+      GBP: {
+        code: "GBP",
+        name: "British Pound",
+        symbol: "£",
+      },
+      EUR: {
+        code: "EUR",
+        name: "Euro",
+        symbol: "€",
+      },
+    },
   },
 
   vtexHeadlessCms: {
