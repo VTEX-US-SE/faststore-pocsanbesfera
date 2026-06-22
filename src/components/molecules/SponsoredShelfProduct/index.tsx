@@ -69,7 +69,7 @@ const SponsoredShelfProduct = ({
             >
               {!isMobile && isAdvertisement && type == 'product' && (
                 <div>
-                  <div className={customStyles.sponsored}>patrocinado</div>
+                  <div className={customStyles.sponsored}>Sponsored</div>
                 </div>
               )}
 
@@ -86,7 +86,7 @@ const SponsoredShelfProduct = ({
                     type == 'brand' && customStyles.brand,
                   ].join(' ')}
                 >
-                  <span>Ops! Já vendemos todo o estoque</span>
+                  <span>Sorry! We have sold out of this item</span>
                 </div>
               ) : (
                 <div className={customStyles.priceContent}>
@@ -168,7 +168,7 @@ const SponsoredShelfProduct = ({
             <div
               className={[customStyles.spec, customStyles.sponsored].join(' ')}
             >
-              patrocinado
+              Sponsored
             </div>
           </div>
         )}

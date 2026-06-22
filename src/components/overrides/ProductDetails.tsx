@@ -8,7 +8,10 @@ import {
 import SellerBuyBox from '../SellerBuyBox'
 import divMaluca from '../SellerBuyBox/divMaluca'
 import { usePriceFormatter } from '../common/custom-hooks'
-import { cartStore_unstable as useCart } from '@faststore/core/experimental'
+import {
+  cartStore_unstable as useCart,
+  useSession_unstable as useSession,
+} from '@faststore/core/experimental'
 import { useCartWithPoints } from '../common/custom-hooks/useCartWithPoints'
 import { useGetOrderFormId } from '../common/custom-hooks/useOrderForm'
 import { useEffect, useRef, useState } from 'react'
@@ -38,6 +41,10 @@ const override: SectionOverride = {
     BuyButton: {
       Component: (props: any) => {
         const { read, set } = useCart
+        const {
+          locale,
+          currency: { code: currencyCode },
+        } = useSession()
         const { data: dataProduct } = usePDP()
         const { cpp, offers, id } = dataProduct.product
         const cartInfo = read()
@@ -88,6 +95,8 @@ const override: SectionOverride = {
               preco1: Number(selectedOffer.listPrice) * 0.2,
               preco2: Number(selectedOffer.listPrice) * 0.3,
               preco3: Number(selectedOffer.listPrice) * 0.4,
+              locale,
+              currencyCode,
             })
           )
 
@@ -124,7 +133,7 @@ const override: SectionOverride = {
             inputPrice70?.removeEventListener('change', handler70)
             inputPrice60?.removeEventListener('change', handler60)
           }
-        }, [id, cpp, listPoints, finalPoints, selectedOffer])
+        }, [id, cpp, listPoints, finalPoints, selectedOffer, locale, currencyCode])
 
         useEffect(() => {
           if (

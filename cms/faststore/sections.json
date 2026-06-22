@@ -423,7 +423,7 @@
     "name": "SponsoredShelf",
     "schema": {
       "title": "Sponsored Shelf",
-      "description": "Este componente exibe uma vitrine de produtos patrocinados ideal para ser exibida acima de uma listagem de produtos.",
+      "description": "Displays a sponsored product shelf, ideal for placement above a product listing.",
       "type": "object",
       "required": [],
       "properties": {

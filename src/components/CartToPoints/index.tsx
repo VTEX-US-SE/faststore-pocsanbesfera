@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react'
 import { cartStore_unstable as useCart } from '@faststore/core/experimental'
+import { usePriceFormatter } from '../common/custom-hooks'
+import { usePointsFormatter } from '../common/custom-hooks/usePointsFormatter'
 
 function CartToPoints() {
+  const pointsFormatter = usePointsFormatter()
+  const priceFormatter = usePriceFormatter()
   const pixelHelpers = {
     observer({
       targetSelector,
@@ -54,17 +58,9 @@ function CartToPoints() {
     },
   }
 
-  const formatValueText = (cash: any, points: any) => {
-    const cashText =
-      cash > 0
-        ? 'R$ ' +
-          new Intl.NumberFormat('pt-BR', {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-          }).format(cash)
-        : ''
-    const pointsText =
-      points > 0 ? `${Math.round(points).toLocaleString('pt-BR')} pts` : ''
+  const formatValueText = (cash: number, points: number) => {
+    const cashText = cash > 0 ? priceFormatter(cash) : ''
+    const pointsText = points > 0 ? pointsFormatter(Math.round(points)) : ''
     const separator = cash > 0 && points > 0 ? ' + ' : ''
     return `${pointsText}${separator}${cashText}`
   }
@@ -147,7 +143,7 @@ function CartToPoints() {
         processCartSummary(totalPoints, totalCash)
       },
     })
-  }, [])
+  }, [pointsFormatter, priceFormatter])
 
   return <div data-fs-cart-custom />
 }

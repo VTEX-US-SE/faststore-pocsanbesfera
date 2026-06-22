@@ -11,16 +11,15 @@ const override: SectionOverride = {
   components: {
     Navbar: {
       Component: (props) => {
-        /* `useEffect` para alterar o placeholder do input de busca da Navbar.
-         * É uma solução provisória, pois o componente nativo @faststore/core/src/components/search/SearchInput,
-         * utilizado dentro do Navbar, possui um valor hardcoded "Search everything at the store" no placeholder.
-         * Quando a toolkit permitir sobrescrever o placeholder do SearchInput, este `useEffect` poderá ser
-         * removido.
+        /* Temporary workaround to change the Navbar search input placeholder.
+         * The native @faststore/core SearchInput component hardcodes
+         * "Search everything at the store" as the placeholder.
+         * Remove this effect once the toolkit allows overriding SearchInput placeholder.
          */
         useEffect(() => {
           document
             .querySelector('[data-fs-search-input-field-input]')
-            ?.setAttribute('placeholder', 'Pesquise por produtos ou marcas')
+            ?.setAttribute('placeholder', 'Search for products or brands')
         }, [])
 
         return (

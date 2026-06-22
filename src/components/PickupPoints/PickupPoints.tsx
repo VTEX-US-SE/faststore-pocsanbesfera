@@ -20,13 +20,13 @@ export default function PickupPoints(props: PickupPointsProps) {
 
   const pickupPoints = data?.getPickupPoint || []
   const daysOfWeek = [
-    'Domingo',
-    'Segunda',
-    'Terça',
-    'Quarta',
-    'Quinta',
-    'Sexta',
-    'Sábado',
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
   ]
 
   return (
@@ -49,7 +49,7 @@ export default function PickupPoints(props: PickupPointsProps) {
               </p>
               {actionCard && (
                 <div className={styles.card}>
-                  <p className={styles.subTitle}>Horário de funcionamento</p>
+                  <p className={styles.subTitle}>Opening hours</p>
                   {pickupPoint.businessHours.map((businessHour, id) => (
                     <div key={id}>
                       <p className={styles.info}>
@@ -67,7 +67,7 @@ export default function PickupPoints(props: PickupPointsProps) {
                 className={styles.titleDetails}
                 onClick={() => setActionCard((prev) => !prev)}
               >
-                Mais detalhes
+                More details
               </p>
             </div>
           ))}

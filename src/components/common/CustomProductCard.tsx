@@ -128,7 +128,7 @@ function CustomProductCard({
         }}
         ratingValue={ratingValue}
         outOfStock={outOfStock}
-        outOfStockLabel="Fora de estoque"
+        outOfStockLabel="Out of stock"
         onButtonClick={onButtonClick}
         linkProps={linkProps}
         showDiscountBadge={hasDiscount && showDiscountBadge}
@@ -160,7 +160,7 @@ function CustomProductCard({
           toggleCart()
         }}
       >
-        {outOfStock ? 'Indisponível' : 'Adicionar ao carrinho'}
+        {outOfStock ? 'Unavailable' : 'Add to cart'}
       </BuyButton>
     </UIProductCard>
   )

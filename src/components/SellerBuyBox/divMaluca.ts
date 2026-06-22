@@ -8,10 +8,12 @@ const divMaluca = ({
   preco2,
   preco3,
   cpp,
+  locale = 'en-GB',
+  currencyCode = 'EUR',
 }: any) => `
 <div class="-cardpdpvaluebox">
     <div class="-boxheader">
-        <div class="-headertitle">Resgate com pontos</div>
+        <div class="-headertitle">Redeem with points</div>
             <div class="util-flex-nospace -discountcontainer">
                 <p class="-customoption">
                     <input type="radio" id="inputPrice100" name="optionprice" selected class="custom-radio" data-bind="
@@ -25,12 +27,14 @@ const divMaluca = ({
                     <span class="-oldprice">
                         <text data-bind="currency: {price: $parent.getSelectedSKUPrices().listPrice,
                             currencyObj: {'currencyCode': '', 'fractionalDigits': 0, 'symbol': ''}}">${formatPoints(
-                              ponto1
+                              ponto1,
+                              locale
                             )}</text>
                     </span>
                     <div class="-valueboxitem -newvalue">
                         <text data-bind="currency: {price: $data.amountPTS, currencyObj: {'currencyCode': '', 'fractionalDigits': 0, 'symbol': ''}}">${formatPoints(
-                          ponto2
+                          ponto2,
+                          locale
                         )}</text>
                     </div>
                 </div>
@@ -38,7 +42,7 @@ const divMaluca = ({
     </div>
     <div class="-boxcontent">
         <div class="-contenttitle">
-            Resgate com <strong>Pontos<span>&amp;</span>Dinheiro</strong> 
+            Redeem with <strong>Points<span>&amp;</span>Money</strong> 
             <span class="-info js-openmodal-info" data-toggle="modal" data-target="#mdlInfoPoints">i</span>
         </div>
 
@@ -53,15 +57,16 @@ const divMaluca = ({
                 </p>
                 <div class="-valueboxitem">
                     <text data-bind="currency: {price: $data.amountPTS, currencyObj: {'currencyCode': '', 'fractionalDigits': 0, 'symbol': ''}}">${formatPoints(
-                      ponto3
+                      ponto3,
+                      locale
                     )}</text> 
                     <span data-bind="text: '+ '">+ </span>
                     <span data-bind="currency: { price: $data.amountBRL,
                         currencyObj: {
-                        currencyCode: 'BRL',
+                        currencyCode: '${currencyCode}',
                         fractionalDigits: 2,
-                        symbol: 'R$ '},
-                        nullReplace: 0}">${formatCash(preco1)}</span>
+                        symbol: ''},
+                        nullReplace: 0}">${formatCash(preco1, locale, currencyCode)}</span>
             
                 </div>
             </div>
@@ -76,15 +81,16 @@ const divMaluca = ({
                 </p>
                 <div class="-valueboxitem">
                     <text data-bind="currency: {price: $data.amountPTS, currencyObj: {'currencyCode': '', 'fractionalDigits': 0, 'symbol': ''}}">${formatPoints(
-                      ponto4
+                      ponto4,
+                      locale
                     )}</text>
                     <span data-bind="text: '+ '">+ </span>
                     <span data-bind="currency: { price: $data.amountBRL,
                         currencyObj: {
-                        currencyCode: 'BRL',
+                        currencyCode: '${currencyCode}',
                         fractionalDigits: 2,
-                        symbol: 'R$ '},
-                        nullReplace: 0}">${formatCash(preco2)}</span>
+                        symbol: ''},
+                        nullReplace: 0}">${formatCash(preco2, locale, currencyCode)}</span>
             
                 </div>
             </div>
@@ -99,39 +105,47 @@ const divMaluca = ({
                 </p>
                 <div class="-valueboxitem">
                     <text data-bind="currency: {price: $data.amountPTS, currencyObj: {'currencyCode': '', 'fractionalDigits': 0, 'symbol': ''}}">${formatPoints(
-                      ponto5
+                      ponto5,
+                      locale
                     )}</text> 
                     <span data-bind="text: '+ '">+ </span>
                     <span data-bind="currency: { price: $data.amountBRL,
                         currencyObj: {
-                        currencyCode: 'BRL',
+                        currencyCode: '${currencyCode}',
                         fractionalDigits: 2,
-                        symbol: 'R$ '},
-                        nullReplace: 0}">${formatCash(preco3)}</span>
+                        symbol: ''},
+                        nullReplace: 0}">${formatCash(preco3, locale, currencyCode)}</span>
             
-                        <span class="-target">Recomendado</span>
+                        <span class="-target">Recommended</span>
                 </div>
             </div>
     </div>
 </div>`
 
-export function formatCash(cash: any) {
-  const cashText =
-    cash > 0
-      ? 'R$ ' +
-        new Intl.NumberFormat('pt-BR', {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        }).format(cash)
-      : ''
-  return cashText
+export function formatCash(
+  cash: number,
+  locale = 'en-GB',
+  currencyCode = 'EUR'
+) {
+  if (cash <= 0) return ''
+
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: currencyCode,
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(cash)
 }
 
-export function formatPoints(points: any) {
-  const pointsText =
-    points > 0 ? `${Math.round(points).toLocaleString('pt-BR')} pts` : ''
+export function formatPoints(points: number, locale = 'en-GB') {
+  if (points <= 0) return ''
 
-  return pointsText
+  return (
+    new Intl.NumberFormat(locale, {
+      style: 'decimal',
+      maximumFractionDigits: 0,
+    }).format(Math.round(points)) + ' pts'
+  )
 }
 
 export default divMaluca

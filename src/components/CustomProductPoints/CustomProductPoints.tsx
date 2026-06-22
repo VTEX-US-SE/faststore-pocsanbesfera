@@ -19,7 +19,7 @@ export default function CustomProductPoints() {
     const onlyNumbers = value.replace(/\D/g, '')
 
     if (onlyNumbers.length !== 11) {
-      setError('CPF inválido')
+      setError('Invalid CPF')
     } else {
       setError('')
     }
@@ -35,29 +35,29 @@ export default function CustomProductPoints() {
         </div>
 
         <div className={styles.pointsBox}>
-          <span className={styles.smallText}>Até</span>
+          <span className={styles.smallText}>Up to</span>
           <span className={styles.bigNumber}>
             {dataProduct?.product?.offers?.offers?.[0]?.price}
           </span>
           <div className={styles.pointsText}>
-            <span className={styles.highlightText}>Pontos</span>
+            <span className={styles.highlightText}>Points</span>
             <span className={styles.text}>Esfera*</span>
           </div>
-          <span className={styles.smallText}>a cada</span>
+          <span className={styles.smallText}>for every</span>
           <span className={styles.bigNumber}>1</span>
           <div className={styles.pointsText}>
             <span className={styles.highlightText}>
-              Real <span>em</span>
+              unit <span>spent</span>
             </span>
-            <span className={styles.text}>compra</span>
+            <span className={styles.text}>on purchase</span>
           </div>
         </div>
       </div>
 
       <div className={styles.content}>
         <p className={styles.description}>
-          Para usar esse benefício,{' '}
-          <span className={styles.link}>acesse sua conta Esfera</span> ou
+          To use this benefit,{' '}
+          <span className={styles.link}>sign in to your Esfera account</span> or
         </p>
 
         <div className={styles.wrapper}>
@@ -66,7 +66,7 @@ export default function CustomProductPoints() {
             value={cpf}
             onChange={handleChange}
             className={`${styles.input} ${error ? styles.errorBorder : ''}`}
-            placeholder="Digite CPF ou CNPJ"
+            placeholder="Enter CPF or CNPJ"
           />
           {error && <p className={styles.errorText}>{error}</p>}
         </div>
@@ -79,14 +79,14 @@ export default function CustomProductPoints() {
             onChange={(e) => setAgreed(e.target.checked)}
           />
           <label htmlFor="agree">
-            Estou de acordo que estes dados estão sendo armazenados para fins de
-            acúmulo de pontos na Esfera.
+            I agree that this data is being stored for the purpose of
+            accumulating Esfera points.
           </label>
         </div>
 
         {!canProceed ? (
           <button className={styles.partnerButton} disabled={!canProceed}>
-            Ir para o site do parceiro
+            Go to partner website
           </button>
         ) : (
           <a
@@ -96,7 +96,7 @@ export default function CustomProductPoints() {
             role="button"
             rel="noreferrer"
           >
-            Ir para o site do parceiro
+            Go to partner website
           </a>
         )}
       </div>

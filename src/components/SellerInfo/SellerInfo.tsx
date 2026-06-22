@@ -18,7 +18,7 @@ export default function SellerInfo() {
 
   return (
     <div className="c-seller__info-title">
-      Vendido e entregue por:{' '}
+      Sold and delivered by:{' '}
       <span className="c-seller__info-seller">
         <Seller id={identifier} />
       </span>

@@ -2,7 +2,7 @@ module.exports = {
   seo: {
     title: 'Santander Shopping',
     description:
-      'Compre nos maiores varejistas, pague com condições exclusivas e ganhe pontos Esfera.',
+      'Shop at major retailers, pay with exclusive conditions, and earn Esfera points.',
     titleTemplate: '%s | Santander Shopping',
     author: 'Santander',
   },

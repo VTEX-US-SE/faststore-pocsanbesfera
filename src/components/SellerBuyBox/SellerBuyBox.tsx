@@ -1,4 +1,5 @@
 import { usePDP } from '@faststore/core'
+import { useSession_unstable as useSession } from '@faststore/core/experimental'
 import Seller from '../common/Seller'
 import styles from './sellerBuyBox.module.scss'
 import divMaluca, { formatCash, formatPoints } from './divMaluca'
@@ -9,6 +10,10 @@ export default function SellerBuyBox({
   priceDiv,
 }: any) {
   const { data } = usePDP()
+  const {
+    locale,
+    currency: { code: currencyCode },
+  } = useSession()
   const product = data?.product
   const offers = product?.offers.offers
   const cpp: any = product.cpp
@@ -24,7 +29,7 @@ export default function SellerBuyBox({
   return (
     <section data-fs-product-details-section className={styles.sellerBuyBox}>
       <div className={styles.content}>
-        <h2 className={`text__title-mini ${styles.title}`}>Nossos parceiros</h2>
+        <h2 className={`text__title-mini ${styles.title}`}>Our partners</h2>
         <div className={styles.offerList}>
           {filteredOffers.map((offer: any, index: number) => {
             const listPoints = (Number(offer.listPrice) * Number(cpp)).toFixed(
@@ -50,6 +55,8 @@ export default function SellerBuyBox({
                         preco1: Number(offer.listPrice) * 0.2,
                         preco2: Number(offer.listPrice) * 0.3,
                         preco3: Number(offer.listPrice) * 0.4,
+                        locale,
+                        currencyCode,
                       })
                     )
 
@@ -106,16 +113,20 @@ export default function SellerBuyBox({
                   </div>
                   <div className={styles.forPrice}>
                     <div className={styles.listPoints}>
-                      {formatPoints(listPoints)}{' '}
+                      {formatPoints(listPoints, locale)}{' '}
                     </div>
                     <div className={styles.finalPoints}>
-                      {formatPoints(finalPoints)}
+                      {formatPoints(finalPoints, locale)}
                     </div>
                   </div>
                   <div>
-                    ou {formatPoints(Number(listPoints) * 0.6)}
+                    or {formatPoints(Number(listPoints) * 0.6, locale)}
                     {' + '}
-                    {formatCash(Number(offer.listPrice) * 0.4)}
+                    {formatCash(
+                      Number(offer.listPrice) * 0.4,
+                      locale,
+                      currencyCode
+                    )}
                   </div>
                 </div>
               </div>
