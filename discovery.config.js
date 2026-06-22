@@ -49,7 +49,7 @@ module.exports = {
   storeUrl: 'https://santander.b2cdemostore.com',
   secureSubdomain: 'https://santander.b2cdemostore.com',
   checkoutUrl: 'https://santander.b2cdemostore.com/checkout',
-  loginUrl: 'https://santander.b2cdemostore.com/login',
+  loginUrl: 'https://santander.b2cdemostore.com/api/io/login',
   accountUrl: 'https://santander.b2cdemostore.com/account',
 
   previewRedirects: {
