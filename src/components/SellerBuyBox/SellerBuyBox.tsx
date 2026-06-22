@@ -113,10 +113,10 @@ export default function SellerBuyBox({
                   </div>
                   <div className={styles.forPrice}>
                     <div className={styles.listPoints}>
-                      {formatPoints(listPoints, locale)}{' '}
+                      {formatPoints(Number(listPoints), locale)}{' '}
                     </div>
                     <div className={styles.finalPoints}>
-                      {formatPoints(finalPoints, locale)}
+                      {formatPoints(Number(finalPoints), locale)}
                     </div>
                   </div>
                   <div>
